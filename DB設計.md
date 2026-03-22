@@ -51,19 +51,19 @@
 
 - プログラムの中でどんな役割の部品を作るかを決めること
 
-1. データを表すクラス
+1. データを表すクラス  
   例）
-  - User
-  - Subject
-  - Node
-  - Quiz
-  - Review History
+    - User
+    - Subject
+    - Node
+    - Quiz
+    - Review History
 
-2. 処理を担当するクラス
+2. 処理を担当するクラス  
   例）
-  - NodeService
-  - QuizService
-  - ReviwService
+    - NodeService
+    - QuizService
+    - ReviwService
    
 
 ## API設計とは
@@ -79,13 +79,13 @@
 
   入り口の例としては、
 
-  - GET/nodes
+  - GET/nodes  
     ノード一覧を取得する
-  - GET/nodes/{id}
+  - GET/nodes/{id}  
     ノード詳細を取得する
-  - POST/nodes
+  - POST/nodes  
     ノードを新規作成する
-  - POST/reviews/{quizId}/answer
+  - POST/reviews/{quizId}/answer  
     クイズ回答結果を保存する
   
 
