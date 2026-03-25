@@ -5,16 +5,16 @@
 ### 作り方
 
   1. 画面を書く
-   - 各画面のボタンや操作を紙に書く
+     - 各画面のボタンや操作を紙に書く
   
   2. ユーザー操作を書く
-   - １画面でユーザーが具体的にどんな操作をするか言語化する
+     - １画面でユーザーが具体的にどんな操作をするか言語化する
   
   3. 保存が必要な情報を抜き出す
-   - 操作から保存が必要になるデータを書き出す
+     - 操作から保存が必要になるデータを書き出す
   
   4. 一覧にする
-　 - 一覧にしてまとめる
+     - 一覧にしてまとめる
 
 
 ### 具体例
@@ -124,39 +124,54 @@
 ### 作り方
 
   1. データをグループ分けする
-    - 大枠のグループにデータを分ける
+     - 大枠のグループにデータを分ける
   
   2. テーブルを作る
-    - テーブル名を決める
+     - テーブル名を決める
   
   3. カラム（項目）を決める
-    - 各テーブルに必要なカラム（項目）を決める
+     - 各テーブルに必要なカラム（項目）を決める
   
   4. 関係（リレーション）を決める
-    - テーブル同士の繋がりを決める
+     - テーブル同士の繋がりを決める
 
 ### 具体例
 
 1. データグループ分け
-- ノード系：Node
-- クイズ系：Quiz
-- 履歴系：ReviwHistory
-- 分野：Subject
+  - ノード系：Node
+  - クイズ系：Quiz
+  - 履歴系：ReviwHistory
+  - 分野：Subject
 
 
-2. テーブル作成
-- ノード系：Node
-  - id
-  - title
-  - content
-  - subject_id
-  - created_id
+2. テーブル&カラム作成
+  - ノード系：Node
+    - id
+    - title
+    - content
+    - subject_id
+    - created_id
+  
+  - クイズ系：Quiz
+    - id
+    - node_id
+    - question
+    - answer
+    - next_review_date
+  
+  - 履歴系：ReviwHistory
+    - id
+    - quiz_id
+    - result（正解/不正解）
+    - understanding_level
+    - reviewed_at
+  
+  - 分野：Subject
+    - id
+    - name（Java, SQLなど）
 
-- クイズ系：Quiz
-- 履歴系：ReviwHistory
-- 分野：Subject
 
-3. カラム決定
-
-
-4. リレーション決定
+3. リレーション決定
+  - Subject 1 : N Node
+  - Node 1 : N Quiz
+  - Quiz 1 : N ReviewHistory
