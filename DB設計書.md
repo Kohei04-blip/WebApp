@@ -199,8 +199,80 @@ A1件に対してBは何件あるか？
 
 ---
 
-## クラス設計
+## クラス設計（Entity設計）
 
+### ■ クラス設計とは
+DBで設計したテーブルを、Javaのオブジェクトとして表現すること
 
+---
 
+### ■ 基本ルール
 
+#### ルール①：テーブル = クラス
+- Nodeテーブル → Nodeクラス
+- Quizテーブル → Quizクラス
+- ReviewHistoryテーブル → ReviewHistoryクラス
+- Subjectテーブル → Subjectクラス
+
+---
+
+#### ルール②：カラム = フィールド
+- title → String title
+- content → String content
+- learned_at → LocalDate learnedAt
+
+---
+
+#### ルール③：リレーション = オブジェクト参照
+
+■ DB
+Quizテーブル
+- node_id
+
+■ Java
+class Quiz {
+    Node node;
+}
+
+→ IDではなく「オブジェクト」で持つ
+
+---
+
+### ■ クラス設計（例）
+
+#### Subjectクラス
+
+class Subject {
+    Long id;
+    String name;
+}
+
+#### Nodeクラス
+
+class Node {
+    Long id;
+    String title;
+    String content;
+    Subject subject;
+    LocalDate learnedAt;
+}
+
+#### Quizクラス
+
+class Quiz {
+    Long id;
+    Node node;
+    String question;
+    String answer;
+    LocalDate nextReviewDate;
+}
+
+#### ReviewHistoryクラス
+
+class ReviewHistory {
+    Long id;
+    Quiz quiz;
+    Boolean result;
+    Integer understandingLevel;
+    LocalDateTime reviewedAt;
+}
