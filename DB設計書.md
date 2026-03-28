@@ -1,5 +1,7 @@
 # DB設計書
 
+---
+
 ## 必要なデータ一覧
 
 ### 作り方
@@ -117,7 +119,7 @@
     - 回答日時（reviewed_level）
     - 次回復習日（next_review_date）
 
-
+---
 
 ## テーブル設計
 
@@ -134,44 +136,71 @@
   
   4. 関係（リレーション）を決める
      - テーブル同士の繋がりを決める
+    
+
+【カラムの考え方】
+このテーブル1件を保存するのに必要な情報は何か？
+
+【リレーションの考え方】
+A1件に対してBは何件あるか？
+1対多なら、多い側に相手のidを持たせる
+  
 
 ### 具体例
 
 1. データグループ分け
   - ノード系：Node
   - クイズ系：Quiz
-  - 履歴系：ReviwHistory
+  - 履歴系：ReviewHistory
   - 分野：Subject
 
 
 2. テーブル&カラム作成
+  
   - ノード系：Node
-    - id
-    - title
-    - content
-    - subject_id
-    - created_id
+    - 1件のノードを保存するには何が必要か？
+      - 識別：id
+      - 単元名：title
+      - 内容：content
+      - どの分野か：subject_id
+      - 作成日：created_id
+      - 学んだ日：learned_at
+      - 理解度：understanding_level
   
   - クイズ系：Quiz
-    - id
-    - node_id
-    - question
-    - answer
-    - next_review_date
+    - 1件のノードを保持するには何が必要か？
+      - 識別：id
+      - どのノードに属するか：node_id
+      - 問題：question
+      - 正解：answer
+      - 次回の復習日：next_review_date
+      - 作成日：created_at
+      - 更新日：updated_id
   
-  - 履歴系：ReviwHistory
-    - id
-    - quiz_id
-    - result（正解/不正解）
-    - understanding_level
-    - reviewed_at
+  - 履歴系：ReviewHistory
+    - 1件の履歴を保存するには何が必要か？
+      - 識別：id
+      - どのクイズか：quiz_id
+      - 結果：result
+      - 理解度：understanding_level
+      - 復習日：reviewed_at
   
   - 分野：Subject
-    - id
-    - name（Java, SQLなど）
+    - 1件の分野を保持するには何が必要？
+      - 識別：id
+      - 分野名：name（java,sqlなど）
 
 
 3. リレーション決定
   - Subject 1 : N Node
   - Node 1 : N Quiz
   - Quiz 1 : N ReviewHistory
+
+
+---
+
+## クラス設計
+
+
+
+
