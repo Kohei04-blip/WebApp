@@ -159,7 +159,7 @@ A1件に対してBは何件あるか？
 
 2. テーブル&カラム作成
   
-  - ノード系：Node
+  - ノード系：`Node`
     - 1件のノードを保存するには何が必要か？
       - 識別：id
       - 単元名：title
@@ -169,7 +169,7 @@ A1件に対してBは何件あるか？
       - 学んだ日：learned_at
       - 理解度：understanding_level
   
-  - クイズ系：Quiz
+  - クイズ系：`Quiz`
     - 1件のノードを保持するには何が必要か？
       - 識別：id
       - どのノードに属するか：node_id
@@ -179,18 +179,18 @@ A1件に対してBは何件あるか？
       - 作成日：created_at
       - 更新日：updated_id
   
-  - 履歴系：ReviewHistory
+  - 履歴系：`ReviewHistory`
     - 1件の履歴を保存するには何が必要か？
-      - 識別：id
-      - どのクイズか：quiz_id
-      - 結果：result
-      - 理解度：understanding_level
-      - 復習日：reviewed_at
+      - 識別：`id`
+      - どのクイズか：`quiz_id`
+      - 結果：`result`
+      - 理解度：`understanding_level`
+      - 復習日：`reviewed_at`
   
-  - 分野：Subject
+  - 分野：`Subject`
     - 1件の分野を保持するには何が必要？
-      - 識別：id
-      - 分野名：name（java,sqlなど）
+      - 識別：`id`
+      - 分野名：`name（java,sqlなど）`
 
 
 3. リレーション決定
@@ -243,14 +243,15 @@ class Quiz {
 ### ■ クラス設計（例）
 
 #### Subjectクラス
-
+```java
 class Subject {
     Long id;
     String name;
 }
-
+```
 #### Nodeクラス
 
+```java
 class Node {
     Long id;
     String title;
@@ -258,9 +259,11 @@ class Node {
     Subject subject;
     LocalDate learnedAt;
 }
+```
 
 #### Quizクラス
 
+```java
 class Quiz {
     Long id;
     Node node;
@@ -268,9 +271,11 @@ class Quiz {
     String answer;
     LocalDate nextReviewDate;
 }
+```
 
 #### ReviewHistoryクラス
 
+```java
 class ReviewHistory {
     Long id;
     Quiz quiz;
@@ -278,7 +283,7 @@ class ReviewHistory {
     Integer understandingLevel;
     LocalDateTime reviewedAt;
 }
-
+```
 
 ## 処理一覧の考え方
 
