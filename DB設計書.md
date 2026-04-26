@@ -151,33 +151,33 @@ A1件に対してBは何件あるか？
 ### 具体例
 
 1. データグループ分け
-  - ノード系：Node
-  - クイズ系：Quiz
-  - 履歴系：ReviewHistory
-  - 分野：Subject
+  - ノード系：`Node`
+  - クイズ系：`Quiz`
+  - 履歴系：`ReviewHistory`
+  - 分野：`Subject`
 
 
 2. テーブル&カラム作成
   
   - ノード系：`Node`
     - 1件のノードを保存するには何が必要か？
-      - 識別：id
-      - 単元名：title
-      - 内容：content
-      - どの分野か：subject_id
-      - 作成日：created_id
-      - 学んだ日：learned_at
-      - 理解度：understanding_level
+      - 識別：`id`
+      - 単元名：`title`
+      - 内容：`content`
+      - どの分野か：`subject_id`
+      - 作成日：`created_at`
+      - 学んだ日：`learned_at`
+      - 理解度：`understanding_level`
   
   - クイズ系：`Quiz`
-    - 1件のノードを保持するには何が必要か？
-      - 識別：id
-      - どのノードに属するか：node_id
-      - 問題：question
-      - 正解：answer
-      - 次回の復習日：next_review_date
-      - 作成日：created_at
-      - 更新日：updated_id
+    - 1件のクイズを保持するには何が必要か？
+      - 識別：`id`
+      - どのノードに属するか：`node_id`
+      - 問題：`question`
+      - 正解：`answer`
+      - 次回の復習日：`next_review_date`
+      - 作成日：`created_at`
+      - 更新日：`updated_at`
   
   - 履歴系：`ReviewHistory`
     - 1件の履歴を保存するには何が必要か？
@@ -379,4 +379,18 @@ class ReviewHistory {
 - 正答数を集計する
 - 誤答数を集計する
 - 履歴詳細を取得する
+
+## 4. API設計
+
+## Node API
+
+| メソッド | URL | 処理 |
+|---|---|---|
+| GET | /nodes | ノード一覧を表示 |
+| GET | /nodes/new | ノード作成画面を表示 |
+| POST | /nodes | ノードを保存 |
+| GET | /nodes/{id} | ノード詳細を表示 |
+| GET | /nodes/{id}/edit | ノード編集画面を表示 |
+| POST | /nodes/{id}/update | ノードを更新 |
+| POST | /nodes/{id}/delete | ノードを削除 |
 
