@@ -1,23 +1,23 @@
 
 # 🎯 問題
-ノード管理アプリを0から作るとする。
+ノード管理アプリを0から作るとする。  
 まずはじめに、一覧画面を作るとする。
-
-① どのクラス（ファイル）を作るか？
-② Controllerにはどんなメソッドを書くか？
-③ Serviceにはどんなメソッドを書くか？
-④ Repositoryはどう定義するか？
-⑤ HTMLではどのようにデータを表示するか？
+  
+① どのクラス（ファイル）を作るか？  
+② Controllerにはどんなメソッドを書くか？  
+③ Serviceにはどんなメソッドを書くか？  
+④ Repositoryはどう定義するか？  
+⑤ HTMLではどのようにデータを表示するか？  
 
 ---
 
 # 🧠 自分の回答
 
-① Nodeクラス、NodeServiceクラス、NodeControllerクラス、NodeRepositoryクラス
-② findAllメソッド
-③ findAllメソッド
-④ わからない
-⑤ わからない
+① Nodeクラス、NodeServiceクラス、NodeControllerクラス、NodeRepositoryクラス  
+② findAllメソッド  
+③ findAllメソッド  
+④ わからない  
+⑤ わからない  
 
 ---
 
