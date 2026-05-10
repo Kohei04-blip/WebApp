@@ -5,7 +5,7 @@
 ② Controllerにはどんなメソッドを書くか？  
 ③ Serviceにはどんなメソッドを書くか？  
 ④ Repositoryはどう定義するか？  
-⑤ HTMLではどのようにデータを表示するか？  
+⑤ HTMLではどのようにデータを表示するか？
 
 ---
 
@@ -31,6 +31,7 @@ NodeService.java
 NodeController.java
 new.html
 list.html
+NodeForm.java
 ```
 
 ② Controllerにはどんなメソッドを書くか？  
