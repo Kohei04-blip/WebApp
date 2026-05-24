@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ノード登録</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <div class="card">
+        <div class="card-body">
+            <h1 class="mb-4">ノード登録</h1>
+
+            <form th:action="@{/nodes}" th:object="${nodeForm}" method="post">
+                <div class="mb-3">
+                    <label class="form-label">タイトル</label>
+                    <input type="text" th:field="*{title}" class="form-control">
+                
+                    <div class="text-danger mt-1" 
+                        th:if="${#fields.hasErrors('title')}" 
+                        th:errors="*{title}"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">内容</label>
+                    <input type="text" th:field="*{content}" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">カテゴリ</label>
+
+                    <select th:field="*{categoryId}" class="form-select">
+
+                        <option value="">カテゴリを選択</option>
+
+                        <option
+                            th:each="category : ${categories}"
+                            th:value="${category.id}"
+                            th:text="${category.name}">
+                        </option>
+
+                    </select>
+
+                    <div class="mt-2">
+                        <a href="/categories/new" class="btn btn-outline-secondary btn-sm">
+                            カテゴリを追加
+                        </a>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">登録</button>
+                    <a href="/nodes" class="btn btn-secondary">戻る</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
