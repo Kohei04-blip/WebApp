@@ -96,6 +96,14 @@ public class NodeController{
         return "nodes/edit";
     }
 
+    //詳細画面
+    @GetMapping("/{id}")
+    public String detail(@PathVariable Long id ,Model model){
+        Node node = nodeService.findById(id);
+        model.addAttribute("node",node);
+        return "nodes/detail";
+    }
+
     //編集するメソッド
     @PostMapping("/{id}")
     public String update(
