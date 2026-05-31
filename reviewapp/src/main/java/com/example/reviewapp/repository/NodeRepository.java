@@ -1,5 +1,6 @@
 package com.example.reviewapp.repository;
 
+import com.example.reviewapp.repository.NodeRepository;
 import com.example.reviewapp.entity.Node;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
@@ -12,6 +13,8 @@ public interface NodeRepository extends JpaRepository<Node, Long> {
     );
 
     List<Node> findByCategory_Id(Long categoryId);
+
+    long countByCategory_Id(Long categoryId);
 
     List<Node> findByTitleContainingOrContentContainingAndCategory_Id(
         String title,
