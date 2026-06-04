@@ -1,5 +1,7 @@
 package com.example.reviewapp.dto;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,6 +25,16 @@ public class NodeForm {
     private String title;
 
     private String content;
+
+    private LocalDate reviewDate;
+
+    public LocalDate getReviewDate(){
+        return reviewDate;
+    }
+
+    public void setReviewDate(LocalDate reviewDate){
+        this.reviewDate = reviewDate;
+    }
 
     public String getTitle(){
         return title;

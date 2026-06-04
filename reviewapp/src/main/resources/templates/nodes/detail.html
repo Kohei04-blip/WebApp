@@ -22,6 +22,21 @@
                 <span th:text="${node.category != null ? node.category.name : '未設定'}"></span>
             </p>
 
+            <p>
+                作成日時：
+                <span th:text="${#temporals.format(node.createdAt,'yyyy/MM/dd HH:mm')}"></span>
+            </p>
+
+            <p>
+                更新日時：
+                <span th:text="${#temporals.format(node.updatedAt,'yyyy/MM/dd HH:mm')}"></span>
+            </p>
+
+            <p>
+                復習日：
+                <span th:text="${#temporals.format(node.reviewDate, 'yyyy/MM/dd')}"></span>
+            </p>
+
             <hr>
 
             <p th:text="${node.content}"></p>

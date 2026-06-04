@@ -20,8 +20,12 @@ public class Node {
 
     private String title;
     private String content;
+
     private LocalDate learnedAt;
+    private LocalDate reviewDate;
+    
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     @ManyToOne
     private Category category;
@@ -42,8 +46,16 @@ public class Node {
         return learnedAt;
     }
 
+    public LocalDate getReviewDate(){
+        return reviewDate;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt(){
+        return updatedAt;
     }
 
     public Category getCategory(){
@@ -52,6 +64,18 @@ public class Node {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public void setReviewDate(LocalDate reviewDate){
+        this.reviewDate = reviewDate;
     }
 
     public void setContent(String content) {

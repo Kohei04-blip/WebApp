@@ -67,7 +67,7 @@ public class NodeController{
             return "nodes/new";
         }
 
-        nodeService.create(nodeForm.getTitle(), nodeForm.getContent() ,nodeForm.getCategoryId());
+        nodeService.create(nodeForm.getTitle(), nodeForm.getContent() ,nodeForm.getCategoryId() ,nodeForm.getReviewDate());
         return "redirect:/nodes";
     }
 

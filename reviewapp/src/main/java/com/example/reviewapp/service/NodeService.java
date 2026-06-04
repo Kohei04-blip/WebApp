@@ -1,5 +1,7 @@
 package com.example.reviewapp.service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -7,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.reviewapp.entity.Node;
 import com.example.reviewapp.entity.Category;
 import com.example.reviewapp.repository.CategoryRepository;
-import com.example.reviewapp.repository.NodeRepository;
+import com.example.reviewapp.repository.NodeRepository; 
 
 @Service
 public class NodeService {
@@ -48,10 +50,13 @@ public class NodeService {
 
     }
 
-    public void create(String title, String content ,Long categoryId) {
+    public void create(String title, String content ,Long categoryId ,LocalDate reviewDate) {
         Node node = new Node();
         node.setTitle(title);
         node.setContent(content);
+        node.setCreatedAt(LocalDateTime.now());
+        node.setUpdatedAt(LocalDateTime.now());
+        node.setReviewDate(reviewDate);
         
         Category category = categoryRepository.findById(categoryId).orElse(null);
         node.setCategory(category);
@@ -67,6 +72,7 @@ public class NodeService {
         Node node = nodeRepository.findById(id).orElse(null);
         node.setTitle(title);
         node.setContent(content);
+        node.setUpdatedAt(LocalDateTime.now());
 
         Category category = categoryRepository.findById(categoryId).orElse(null);
         node.setCategory(category);
