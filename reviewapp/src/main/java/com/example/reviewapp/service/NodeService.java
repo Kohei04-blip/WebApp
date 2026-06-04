@@ -68,11 +68,12 @@ public class NodeService {
         return nodeRepository.findById(id).orElse(null);
     }
 
-    public void update(Long id, String title, String content, Long categoryId){
+    public void update(Long id, String title, String content, Long categoryId ,LocalDate reviewDate){
         Node node = nodeRepository.findById(id).orElse(null);
         node.setTitle(title);
         node.setContent(content);
         node.setUpdatedAt(LocalDateTime.now());
+        node.setReviewDate(reviewDate);
 
         Category category = categoryRepository.findById(categoryId).orElse(null);
         node.setCategory(category);

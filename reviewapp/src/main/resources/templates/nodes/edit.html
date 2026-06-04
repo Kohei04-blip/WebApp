@@ -41,6 +41,17 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label">
+                        復習日
+                    </label>
+
+                    <input
+                        type="date"
+                        class="form-control"
+                        th:field="*{reviewDate}">
+                </div>
+
+                <div class="mb-3">
                     <label class="form-label">内容</label>
                     <input type="text" th:field="*{content}" class="form-control">
                 </div>

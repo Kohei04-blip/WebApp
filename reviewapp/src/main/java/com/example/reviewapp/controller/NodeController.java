@@ -79,6 +79,7 @@ public class NodeController{
         NodeForm nodeForm = new NodeForm();
         nodeForm.setTitle(node.getTitle());
         nodeForm.setContent(node.getContent());
+        nodeForm.setReviewDate(node.getReviewDate());
 
          if (node.getCategory() != null) {
              nodeForm.setCategoryId(
@@ -121,7 +122,8 @@ public class NodeController{
             id, 
             nodeForm.getTitle(), 
             nodeForm.getContent(),
-            nodeForm.getCategoryId()
+            nodeForm.getCategoryId(),
+            nodeForm.getReviewDate()
         );
         return "redirect:/nodes";
     }
