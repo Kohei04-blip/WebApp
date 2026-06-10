@@ -97,6 +97,14 @@ public class NodeController{
         return "nodes/edit";
     }
 
+    //復習日一覧表示メソッド
+    @GetMapping("/review")
+    public String reviewList(Model model){
+        List<Node> reviewNodes = nodeService.findReviewNodes();
+        model.addAttribute("nodes",reviewNodes);
+        return "nodes/review";
+    }
+
     //詳細画面
     @GetMapping("/{id}")
     public String detail(@PathVariable Long id ,Model model){

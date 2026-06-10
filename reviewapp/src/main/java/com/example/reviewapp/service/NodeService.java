@@ -85,4 +85,8 @@ public class NodeService {
         nodeRepository.deleteById(id);
     }
 
+    public List<Node> findReviewNodes(){
+        return nodeRepository.findByReviewDateLessThanEqual(LocalDate.now());
+    }
+
 }

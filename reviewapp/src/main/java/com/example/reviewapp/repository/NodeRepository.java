@@ -1,8 +1,8 @@
 package com.example.reviewapp.repository;
 
-import com.example.reviewapp.repository.NodeRepository;
 import com.example.reviewapp.entity.Node;
 import org.springframework.data.jpa.repository.JpaRepository;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface NodeRepository extends JpaRepository<Node, Long> {
@@ -21,5 +21,7 @@ public interface NodeRepository extends JpaRepository<Node, Long> {
         String content,
         Long categoryId
     );
+
+    List<Node> findByReviewDateLessThanEqual(LocalDate today);
 
 }
