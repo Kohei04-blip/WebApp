@@ -105,6 +105,13 @@ public class NodeController{
         return "nodes/review";
     }
 
+    //復習日を更新するメソッド
+    @PostMapping("/{id}/reviewed")
+    public String reviewed(@PathVariable Long id){
+        nodeService.reviewed(id);
+        return "redirect:/nodes/review";
+    }
+
     //詳細画面
     @GetMapping("/{id}")
     public String detail(@PathVariable Long id ,Model model){

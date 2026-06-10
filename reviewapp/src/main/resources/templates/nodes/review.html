@@ -14,7 +14,7 @@
         <h1>今日復習するノート</h1>
 
         <div class="d-flex gap-2">
-            <a href="/categories" class="btn btn-outline-secondary">カテゴリ一覧</a>
+            <a href="/nodes" class="btn btn-outline-secondary">ノード一覧</a>
             <a href="/nodes/new" class="btn btn-primary">新規登録</a>
         </div>
     </div>
@@ -34,6 +34,13 @@
             </p>
 
             <div class="d-flex gap-2">
+
+                <form th:action="@{/nodes/{id}/reviewed(id=${node.id})}" method="post">
+                     <button type="submit" class="btn btn-success btn-sm">
+                        復習済み
+                    </button>
+                </form>
+
                 <a class="btn btn-outline-primary btn-sm"
                    th:href="@{/nodes/{id}/edit(id=${node.id})}">
                     編集

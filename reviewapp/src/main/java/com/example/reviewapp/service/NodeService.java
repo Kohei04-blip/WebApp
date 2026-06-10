@@ -89,4 +89,10 @@ public class NodeService {
         return nodeRepository.findByReviewDateLessThanEqual(LocalDate.now());
     }
 
+    public void reviewed(Long id){
+        Node node = nodeRepository.findById(id).orElse(null);
+        node.setReviewDate(LocalDate.now().plusDays(7));
+        nodeRepository.save(node);
+    }
+
 }
