@@ -33,6 +33,18 @@
                 <span th:text="${node.category != null ? node.category.name : '未設定'}"></span>
             </p>
 
+            <p class="text-muted">
+                理解度：
+                <span th:switch="${node.understandingLevel}">
+                    <span th:case="1">★☆☆☆☆</span>
+                    <span th:case="2">★★☆☆☆</span>
+                    <span th:case="3">★★★☆☆</span>
+                    <span th:case="4">★★★★☆</span>
+                    <span th:case="5">★★★★★</span>
+                    <span th:case="*">未設定</span>
+                </span>
+            </p>
+
             <div class="d-flex gap-2">
 
                 <form th:action="@{/nodes/{id}/reviewed(id=${node.id})}" method="post">

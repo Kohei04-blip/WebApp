@@ -28,6 +28,8 @@ public class NodeForm {
 
     private LocalDate reviewDate;
 
+    private Integer understandingLevel;
+
     public LocalDate getReviewDate(){
         return reviewDate;
     }
@@ -50,5 +52,13 @@ public class NodeForm {
 
     public void setContent(String content){
         this.content = content;
+    }
+
+    public Integer getUnderstandingLevel(){
+        return understandingLevel;
+    }
+
+    public void setUnderstandingLevel(Integer understandingLevel){
+        this.understandingLevel = understandingLevel;
     }
 }

@@ -67,19 +67,27 @@ public class NodeController{
             return "nodes/new";
         }
 
-        nodeService.create(nodeForm.getTitle(), nodeForm.getContent() ,nodeForm.getCategoryId() ,nodeForm.getReviewDate());
+        nodeService.create(
+            nodeForm.getTitle(), 
+            nodeForm.getContent(),
+            nodeForm.getCategoryId(),
+            nodeForm.getReviewDate(),
+            nodeForm.getUnderstandingLevel()
+        );
         return "redirect:/nodes";
     }
 
     //編集画面を表示するメソッド
     @GetMapping("/{id}/edit")
     public String editForm(@PathVariable Long id, Model model){
+        
         Node node = nodeService.findById(id);
 
         NodeForm nodeForm = new NodeForm();
         nodeForm.setTitle(node.getTitle());
         nodeForm.setContent(node.getContent());
         nodeForm.setReviewDate(node.getReviewDate());
+        nodeForm.setUnderstandingLevel(node.getUnderstandingLevel());
 
          if (node.getCategory() != null) {
              nodeForm.setCategoryId(
@@ -138,7 +146,9 @@ public class NodeController{
             nodeForm.getTitle(), 
             nodeForm.getContent(),
             nodeForm.getCategoryId(),
-            nodeForm.getReviewDate()
+            nodeForm.getReviewDate(),
+            nodeForm.getUnderstandingLevel()
+
         );
         return "redirect:/nodes";
     }

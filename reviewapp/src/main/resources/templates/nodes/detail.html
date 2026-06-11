@@ -33,6 +33,11 @@
             </p>
 
             <p>
+                理解度：
+                <span th:text="${node.understandingLevel}"></span>
+            </p>
+
+            <p>
                 復習日：
                 <span th:text="${#temporals.format(node.reviewDate, 'yyyy/MM/dd')}"></span>
             </p>

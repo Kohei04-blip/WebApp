@@ -27,6 +27,8 @@ public class Node {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    private Integer understandingLevel;
+
     @ManyToOne
     private Category category;
 
@@ -38,8 +40,16 @@ public class Node {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getContent() {
         return content;
+    }
+
+     public void setContent(String content) {
+        this.content = content;
     }
 
     public LocalDate getLearnedAt() {
@@ -50,40 +60,40 @@ public class Node {
         return reviewDate;
     }
 
+    public void setReviewDate(LocalDate reviewDate){
+        this.reviewDate = reviewDate;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt(){
-        return updatedAt;
-    }
-
-    public Category getCategory(){
-        return category;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
+    public LocalDateTime getUpdatedAt(){
+        return updatedAt;
+    }
+
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public void setReviewDate(LocalDate reviewDate){
-        this.reviewDate = reviewDate;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
+    public Category getCategory(){
+        return category;
     }
 
     public void setCategory(Category category){
         this.category = category;
+    }
+
+    public Integer getUnderstandingLevel(){
+        return understandingLevel;
+    }
+
+    public void setUnderstandingLevel(Integer understandingLevel){
+        this.understandingLevel = understandingLevel;
     }
 
 }

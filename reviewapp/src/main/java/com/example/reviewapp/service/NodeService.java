@@ -50,13 +50,20 @@ public class NodeService {
 
     }
 
-    public void create(String title, String content ,Long categoryId ,LocalDate reviewDate) {
+    public void create(
+        String title, 
+        String content,
+        Long categoryId,
+        LocalDate reviewDate,
+        Integer understandingLevel
+    ) {
         Node node = new Node();
         node.setTitle(title);
         node.setContent(content);
         node.setCreatedAt(LocalDateTime.now());
         node.setUpdatedAt(LocalDateTime.now());
         node.setReviewDate(reviewDate);
+        node.setUnderstandingLevel(understandingLevel);
         
         Category category = categoryRepository.findById(categoryId).orElse(null);
         node.setCategory(category);
@@ -68,12 +75,20 @@ public class NodeService {
         return nodeRepository.findById(id).orElse(null);
     }
 
-    public void update(Long id, String title, String content, Long categoryId ,LocalDate reviewDate){
+    public void update(
+        Long id,
+        String title,
+        String content,
+        Long categoryId,
+        LocalDate reviewDate,
+        Integer understandingLevel
+    ){
         Node node = nodeRepository.findById(id).orElse(null);
         node.setTitle(title);
         node.setContent(content);
         node.setUpdatedAt(LocalDateTime.now());
         node.setReviewDate(reviewDate);
+        node.setUnderstandingLevel(understandingLevel);
 
         Category category = categoryRepository.findById(categoryId).orElse(null);
         node.setCategory(category);
@@ -91,7 +106,20 @@ public class NodeService {
 
     public void reviewed(Long id){
         Node node = nodeRepository.findById(id).orElse(null);
-        node.setReviewDate(LocalDate.now().plusDays(7));
+        Integer level = node.getUnderstandingLevel();
+
+        if (level == 1){
+            node.setReviewDate(LocalDate.now().plusDays(1));
+        } else if (level == 2){
+            node.setReviewDate(LocalDate.now().plusDays(3));
+        } else if (level == 3){
+            node.setReviewDate(LocalDate.now().plusDays(7));
+        } else if (level == 4){
+            node.setReviewDate(LocalDate.now().plusDays(14));
+        } else if (level == 5){
+            node.setReviewDate(LocalDate.now().plusDays(30));
+        }
+
         nodeRepository.save(node);
     }
 
